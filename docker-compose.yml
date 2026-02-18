@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  nrelab-api-go:
+    build: .
+    ports:
+      - "8080:8080"
+  nrelab-api-python:
+    build: ./python_api
+    command: python app.py
+    ports:
+      - "5000:5000"
+  nrelab-api-ts:
+    build: ./typescript_api
+    command: npm start
+    ports:
+      - "3000:3000"
+  nrelab-api-rust:
+    build: ./rust_api
+    command: cargo run --release
+    ports:
+      - "8081:8081"
